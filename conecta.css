@@ -1,0 +1,228 @@
+
+:root {
+  --azul: #173b57;
+  --azul-claro: #e5eff6;
+  --verde: #21865a;
+  --fundo: #f3f7f8;
+  --texto: #263746;
+  --borda: #d7e1e7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background: var(--azul);
+  color: white;
+  padding: 22px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+header strong,
+header small {
+  display: block;
+}
+
+header strong {
+  font-size: 21px;
+}
+
+header small {
+  margin-top: 6px;
+  color: #d1e4ee;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 5%;
+  background: white;
+  border-bottom: 1px solid var(--borda);
+}
+
+button {
+  background: var(--verde);
+  color: white;
+  border: 0;
+  padding: 11px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  filter: brightness(.92);
+}
+
+.btn-neutro {
+  background: #647786;
+}
+
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 25px 5%;
+}
+
+h2 {
+  color: var(--azul);
+}
+
+.central {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.cartao {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 13px;
+  padding: 22px;
+  box-shadow: 0 5px 18px #173b570c;
+}
+
+.login {
+  width: 100%;
+  max-width: 410px;
+}
+
+.login h1,
+.login > p {
+  text-align: center;
+}
+
+.marca {
+  font-size: 42px;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin: 14px 0 7px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c5d3dc;
+  border-radius: 7px;
+  background: white;
+  color: var(--texto);
+  font-size: 15px;
+}
+
+form button {
+  margin-top: 18px;
+  margin-right: 5px;
+}
+
+.login button {
+  width: 100%;
+}
+
+.resumos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.resumos .cartao {
+  border-top: 4px solid var(--verde);
+}
+
+.resumos span,
+.resumos strong {
+  display: block;
+}
+
+.resumos span {
+  color: #647786;
+}
+
+.resumos strong {
+  font-size: 34px;
+  color: var(--azul);
+  margin-top: 14px;
+}
+
+#form-acervo,
+#form-retirada {
+  max-width: 650px;
+  margin: 18px 0 25px;
+}
+
+.tabela {
+  overflow-x: auto;
+  margin: 18px 0 28px;
+  background: white;
+  border-radius: 9px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+}
+
+th {
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+td button {
+  margin: 3px;
+}
+
+#aviso,
+#erro-login {
+  color: #a12c2c;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .resumos {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 18px;
+  }
+
+  nav button {
+    flex: 1 1 40%;
+  }
+
+  main {
+    padding: 20px 4%;
+  }
+
+  th,
+  td {
+    padding: 9px;
+  }
+}

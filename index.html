@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca Conecta</title>
+  <link rel="stylesheet" href="conecta.css">
+</head>
+<body>
+  <section id="acesso" class="central">
+    <form id="login" class="cartao login">
+      <div class="marca">📗</div>
+      <h1>Biblioteca Conecta</h1>
+      <p>Entre para administrar o acervo.</p>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" required>
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" required>
+
+      <button type="submit">Acessar sistema</button>
+      <button type="reset" class="btn-neutro">Limpar campos</button>
+      <p id="erro-login" role="status"></p>
+    </form>
+  </section>
+
+  <div id="painel" hidden>
+    <header>
+      <div>
+        <strong>📗 Biblioteca Conecta</strong>
+        <small>Gestão de acervo escolar</small>
+      </div>
+      <button id="sair" class="btn-neutro">Sair</button>
+    </header>
+
+    <nav>
+      <button data-pagina="inicio">Visão geral</button>
+      <button data-pagina="acervo">Acervo</button>
+      <button data-pagina="circulacao">Circulação</button>
+      <button data-pagina="ranking">Ranking</button>
+    </nav>
+
+    <main>
+      <section id="pagina-inicio" class="pagina">
+        <h2>Resumo da biblioteca</h2>
+        <div class="resumos">
+          <article class="cartao">
+            <span>Títulos cadastrados</span>
+            <strong id="qtd-titulos">0</strong>
+          </article>
+          <article class="cartao">
+            <span>Retiradas em aberto</span>
+            <strong id="qtd-abertos">0</strong>
+          </article>
+          <article class="cartao">
+            <span>Leitores cadastrados</span>
+            <strong id="qtd-leitores">0</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="pagina-acervo" class="pagina" hidden>
+        <h2>Administração do acervo</h2>
+
+        <form id="form-acervo" class="cartao">
+          <input id="acervo-id" type="hidden">
+
+          <label for="titulo">Título</label>
+          <input id="titulo" required>
+
+          <label for="autor">Autor</label>
+          <input id="autor" required>
+
+          <label for="genero">Gênero literário</label>
+          <input id="genero" required>
+
+          <label for="exemplares">Exemplares disponíveis</label>
+          <input id="exemplares" type="number" min="0" step="1" required>
+
+          <button type="submit">Salvar título</button>
+          <button type="reset" class="btn-neutro">Novo cadastro</button>
+        </form>
+
+        <label for="filtro">Buscar no acervo</label>
+        <input id="filtro" placeholder="Título, autor ou gênero">
+
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Disponíveis</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-acervo"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pagina-circulacao" class="pagina" hidden>
+        <h2>Retirada e devolução</h2>
+
+        <form id="form-retirada" class="cartao">
+          <label for="leitor">Leitor</label>
+          <select id="leitor" required></select>
+
+          <label for="obra">Título</label>
+          <select id="obra" required></select>
+
+          <label for="retirada">Data da retirada</label>
+          <input id="retirada" type="date" required>
+
+          <label for="limite">Prazo para devolução</label>
+          <input id="limite" type="date" required>
+
+          <button type="submit">Confirmar retirada</button>
+        </form>
+
+        <h3>Histórico de movimentações</h3>
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr>
+                <th>Leitor</th>
+                <th>Obra</th>
+                <th>Retirada</th>
+                <th>Prazo</th>
+                <th>Retorno</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-movimentacoes"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pagina-ranking" class="pagina" hidden>
+        <h2>Títulos em destaque</h2>
+        <p>Obras com maior número de empréstimos registrados.</p>
+
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Empréstimos</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-ranking"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <p id="aviso" role="status"></p>
+    </main>
+  </div>
+
+  <script src="conecta.js"></script>
+</body>
+</html>
